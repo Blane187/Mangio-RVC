@@ -90,6 +90,7 @@ def GradioSetup():
                                     "mangio-crepe",
                                     "mangio-crepe-tiny",
                                     "rmvpe",
+                                    "hybrid[rmvpe+mangio-crepe]",
                                 ],  # Fork Feature. Add Crepe-Tiny
                                 value="rmvpe",
                                 interactive=True,
@@ -265,9 +266,11 @@ def GradioSetup():
                             )
 
                         f0_file = gr.File(label=i18n("F0曲线文件, 可选, 一行一个音高, 代替默认F0及升降调"))
+                        with gr.Row():
                         but0 = gr.Button(i18n("转换"), variant="primary")
                         with gr.Row():
                             vc_output1 = gr.Textbox(label=i18n("输出信息"))
+                        with gr.Row():
                             vc_output2 = gr.Audio(label=i18n("输出音频(右下角三个点,点了可以下载)"))
                         but0.click(
                             vc_single,
